@@ -6,5 +6,5 @@
 package com.nagendar.learning.encoder.binarytree;
 
 public interface HuffmanTreeBuilder {
-	HuffmanTreeNode buildTree(CharacterBase characterBase);
+	HuffmanTreeNode buildTree(CharacterFrequencyBase characterBase);
 }

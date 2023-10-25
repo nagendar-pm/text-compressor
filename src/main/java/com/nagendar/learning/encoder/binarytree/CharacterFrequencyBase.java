@@ -8,10 +8,10 @@ package com.nagendar.learning.encoder.binarytree;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CharacterBase {
+public class CharacterFrequencyBase {
 	private final Map<Character, Integer> frequencyData;
 
-	public CharacterBase() {
+	public CharacterFrequencyBase() {
 		frequencyData = new HashMap<>();
 	}
 

@@ -5,10 +5,10 @@
 
 package com.nagendar.learning.encoder.binarytree;
 
-public class CharacterBaseBuilderimpl implements CharacterBaseBuilder {
+public class CharacterFrequencyBaseBuilderimpl implements CharacterFrequencyBaseBuilder {
 	@Override
-	public CharacterBase buildCharacterBase(String input) {
-		CharacterBase characterBase = new CharacterBase();
+	public CharacterFrequencyBase buildCharacterBase(String input) {
+		CharacterFrequencyBase characterBase = new CharacterFrequencyBase();
 		for (char c : input.toCharArray()) {
 			characterBase.setFrequency(c);
 		}

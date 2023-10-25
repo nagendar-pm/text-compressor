@@ -5,6 +5,6 @@
 
 package com.nagendar.learning.encoder.binarytree;
 
-public interface CharacterBaseBuilder {
-	CharacterBase buildCharacterBase(String input);
+public interface CharacterFrequencyBaseBuilder {
+	CharacterFrequencyBase buildCharacterBase(String input);
 }

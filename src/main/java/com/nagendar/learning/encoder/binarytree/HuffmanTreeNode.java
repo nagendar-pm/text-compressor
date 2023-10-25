@@ -52,12 +52,10 @@ public class HuffmanTreeNode implements Comparable<HuffmanTreeNode>{
 
 	@Override
 	public String toString() {
-		return "HuffmanTreeNode{" +
-				"character=" + character +
-				", value=" + value +
-				", left=" + left +
-				", right=" + right +
-				", isLeaf=" + isLeaf +
+		return "{" + (character != null ? character : "") +
+				" " + value +
+				" " + (left != null ? left : "_") +
+				" " + (right != null ? right : "_") +
 				'}';
 	}
 }

@@ -11,7 +11,7 @@ import java.util.PriorityQueue;
 
 public class HuffmanTreeBuilderImpl implements HuffmanTreeBuilder {
 	@Override
-	public HuffmanTreeNode buildTree(CharacterBase characterBase) {
+	public HuffmanTreeNode buildTree(CharacterFrequencyBase characterBase) {
 		List<HuffmanTreeNode> treeNodes = initializeTreeNodes(characterBase);
 		PriorityQueue<HuffmanTreeNode> minHeap = new PriorityQueue<>(treeNodes);
 		while (!minHeap.isEmpty() && minHeap.size() >= 2) {
@@ -24,7 +24,7 @@ public class HuffmanTreeBuilderImpl implements HuffmanTreeBuilder {
 		return minHeap.poll();
 	}
 
-	private List<HuffmanTreeNode> initializeTreeNodes(CharacterBase characterBase) {
+	private List<HuffmanTreeNode> initializeTreeNodes(CharacterFrequencyBase characterBase) {
 		List<HuffmanTreeNode> treeNodes = new ArrayList<>();
 		for (int i=0; i<255; i++) {
 			char c = (char) (i);
