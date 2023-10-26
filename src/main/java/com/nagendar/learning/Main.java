@@ -5,6 +5,8 @@ package com.nagendar.learning;
  * @createdAt: 24/10/23 7:56 pm
  */
 
+import com.nagendar.learning.decoder.HuffmanDecoder;
+import com.nagendar.learning.decoder.HuffmanDecoderImpl;
 import com.nagendar.learning.encoder.*;
 import com.nagendar.learning.encoder.binarytree.*;
 
@@ -21,6 +23,10 @@ public class Main {
 		CharacterCodeBase characterCodeBase = characterCodeBaseBuilder.buildCharacterCodeBase(treeNode);
 		System.out.println("characterCodeBase = " + characterCodeBase);
 		HuffmanEncoder encoder = new HuffmanEncoderImpl();
-		System.out.println("encoded string = " + encoder.encode(characterCodeBase, input));
+		String encodedString = encoder.encode(characterCodeBase, input);
+		System.out.println("encoded string = " + encodedString);
+		HuffmanDecoder decoder = new HuffmanDecoderImpl();
+		String decodedString = decoder.decode(encodedString, treeNode);
+		System.out.println("decodedString = " + decodedString);
 	}
 }
