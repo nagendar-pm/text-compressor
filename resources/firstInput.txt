@@ -1,0 +1,1 @@
+Given there is usually an unequal distribution of character occurrences in text this can then be used to compress data by giving the most commonly occurring characters the shortest prefix.
