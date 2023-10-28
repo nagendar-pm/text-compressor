@@ -26,8 +26,10 @@ public class HuffmanTreeBuilderImpl implements HuffmanTreeBuilder {
 
 	private List<HuffmanTreeNode> initializeTreeNodes(CharacterFrequencyBase characterBase) {
 		List<HuffmanTreeNode> treeNodes = new ArrayList<>();
-		for (int i=0; i<255; i++) {
-			char c = (char) (i);
+		// Here we may have extended ascii characters
+		// i.e. characters not belonging to UTF-8
+		// so we have to iterate on the key set for the better inclusion
+		for (char c : characterBase.keySet()) {
 			int frequency = characterBase.getFrequency(c);
 			if (frequency == 0) continue;
 			treeNodes.add(new HuffmanTreeNode(c, frequency, true));

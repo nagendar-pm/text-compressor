@@ -7,6 +7,7 @@ package com.nagendar.learning.encoder.binarytree;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class CharacterFrequencyBase {
 	private final Map<Character, Integer> frequencyData;
@@ -24,5 +25,9 @@ public class CharacterFrequencyBase {
 			return 0;
 		}
 		return frequencyData.get(c);
+	}
+
+	public Set<Character> keySet() {
+		return this.frequencyData.keySet();
 	}
 }

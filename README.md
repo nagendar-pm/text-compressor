@@ -30,8 +30,13 @@ Given there is usually an unequal distribution of character occurrences in text 
 characters the shortest prefix.
 ```
 
+The difference of the `input.txt` and `decodedUncompressedText.txt` can be found using:
+```commandline
+$ diff input.txt decodedUncompressedText.txt
+$
+```
+
 #### TODO
 1. Make exception hierarchy
 2. Build UML diagrams
 3. Try looking into loading very large files - chunks wise possibility
-4. Working with characters larger than 1 byte
