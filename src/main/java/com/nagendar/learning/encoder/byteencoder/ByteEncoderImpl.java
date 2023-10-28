@@ -11,7 +11,7 @@ public class ByteEncoderImpl implements ByteEncoder {
 	@Override
 	public byte[] encode(String asciiString) {
 		ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-
+		int originalLength = asciiString.length();
 		int byteValue = 0, bitsRemaining = 8;
 		for (char c : asciiString.toCharArray()) {
 			if (c == '0') {
@@ -33,8 +33,10 @@ public class ByteEncoderImpl implements ByteEncoder {
 			byteValue <<= bitsRemaining;
 			byteArrayOutputStream.write(byteValue);
 		}
-
-		byte[] byteArray = byteArrayOutputStream.toByteArray();
-		return byteArray;
+		// appending the number of bits in the last byte
+		// as a next byte to the byte array
+		byteValue = originalLength % 8;
+		byteArrayOutputStream.write(byteValue);
+		return byteArrayOutputStream.toByteArray();
 	}
 }
