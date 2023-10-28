@@ -1,0 +1,42 @@
+@startuml
+'https://plantuml.com/state-diagram
+
+'scale 0 width
+hide empty description
+
+
+
+state Encoding {
+    [*] --> TreeBuilding
+    TreeBuilding : Character freq generation
+    TreeBuilding : HuffmanTree building
+
+    TreeBuilding --> CharacterCodeGeneration
+    CharacterCodeGeneration : Character code generation
+
+    CharacterCodeGeneration --> CharacterEncoding
+    CharacterEncoding : Input characters are encoded
+
+    CharacterEncoding --> ByteArrayGeneration
+    ByteArrayGeneration : Encoding is converted to Bytes
+
+    ByteArrayGeneration --> Serialization
+    Serialization : HuffmanTree & ByteArray serialization
+
+    Serialization --> [*]
+}
+
+state Decoding {
+    [*] -up-> Deserialization
+    Deserialization : Gets HuffmanTree & ByteArray
+
+    Deserialization -up-> ByteArrayConversion
+    ByteArrayConversion : ByteArray is converted to ASCII encoding
+
+    ByteArrayConversion -up-> CharacterDecoding
+    CharacterDecoding : Encoding is decoded using HuffmanTree
+
+    CharacterDecoding -up-> [*]
+}
+
+@enduml
