@@ -36,7 +36,13 @@ $ diff input.txt decodedUncompressedText.txt
 $
 ```
 
+The size difference of the files is shown:
+```commandline
+3.2M input.txt (Original file)
+1.8M output.txt (Compressed file)
+3.2M decodedUncompressedText.txt (Uncompressed and decoded file)
+```
+
 #### TODO
-1. Make exception hierarchy
-2. Build UML diagrams
-3. Try looking into loading very large files - chunks wise possibility
+1. Build UML diagrams
+2. Try looking into loading very large files - chunks wise possibility

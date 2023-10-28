@@ -6,6 +6,7 @@
 package com.nagendar.learning.decoder.parsetree;
 
 import com.nagendar.learning.encoder.binarytree.HuffmanTreeNode;
+import com.nagendar.learning.exceptions.DecodingException;
 
 import java.util.Objects;
 
@@ -35,7 +36,12 @@ public class HuffmanTreeParser {
 			}
 			index++;
 		}
-		// TODO: check for potential edge cases and cover exceptions
+		if (Objects.isNull(iterator)) {
+			throw new DecodingException("Tree parsing couldn't be done properly: Found NULL node");
+		}
+		if (!iterator.isLeaf()) {
+			throw new DecodingException("Tree parsing couldn't be done properly: Found NON-LEAF node " + iterator);
+		}
 		return iterator.getCharacter();
 	}
 }
