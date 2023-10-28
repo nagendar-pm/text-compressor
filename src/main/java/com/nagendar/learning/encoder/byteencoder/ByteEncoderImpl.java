@@ -5,17 +5,11 @@
 
 package com.nagendar.learning.encoder.byteencoder;
 
-import com.nagendar.learning.utils.FileUtils;
-
 import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.util.Arrays;
 
 public class ByteEncoderImpl implements ByteEncoder {
 	@Override
-	public void encode(String asciiString) {
+	public byte[] encode(String asciiString) {
 		ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
 
 		int byteValue = 0, bitsRemaining = 8;
@@ -41,14 +35,6 @@ public class ByteEncoderImpl implements ByteEncoder {
 		}
 
 		byte[] byteArray = byteArrayOutputStream.toByteArray();
-		System.out.println("byteArray = " + Arrays.toString(byteArray));
-		String outputFile = "resources/firstOutput.txt";
-		String path = FileUtils.toAbsolutePath(outputFile);
-		System.out.println("path = " + path);
-		try {
-			Files.write(Path.of(path), byteArray);
-		} catch (IOException e) {
-			throw new RuntimeException(e);
-		}
+		return byteArray;
 	}
 }

@@ -4,5 +4,5 @@ package com.nagendar.learning.encoder.byteencoder;/*
  */
 
 public interface ByteEncoder {
-	void encode(String asciiString);
+	byte[] encode(String asciiString);
 }
