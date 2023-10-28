@@ -5,6 +5,8 @@ package com.nagendar.learning;
  * @createdAt: 24/10/23 7:56 pm
  */
 
+import com.nagendar.learning.decoder.HuffmanDecoder;
+import com.nagendar.learning.decoder.HuffmanDecoderImpl;
 import com.nagendar.learning.encoder.*;
 import com.nagendar.learning.encoder.binarytree.*;
 import com.nagendar.learning.encoder.byteencoder.ByteEncoder;
@@ -45,5 +47,9 @@ public class Main {
 //		objectInputStream.close();
 //
 //		System.out.println("deserializedTreeNode = " + deserializedTreeNode);
+
+		HuffmanDecoder decoder = new HuffmanDecoderImpl();
+		String decodedString = decoder.decode(encodedString, treeNode);
+		System.out.println("decodedString = " + decodedString);
 	}
 }
