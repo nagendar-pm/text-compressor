@@ -7,7 +7,7 @@ For the input
 Given there is usually an unequal distribution of character occurrences in text 
 this can then be used to compress data by giving the most commonly occurring characters the shortest prefix.
 ```
-The tree built looks like below
+The output looks as below
 ```commandline
 Tree
 { 188 { 77 { 35 {e 17 _ _} { 18 {u 8 _ _} { 10 {m 4 _ _} { 6 {b 3 _ _} {y 3 _ _}}}}} { 42 { 20 {a 10 _ _} {o 10 _ _}} { 22 {n 11 _ _} {i 11 _ _}}}} { 
@@ -24,4 +24,14 @@ encoded string
 10101101111110111111101011110011101000010001101101111111010000110110001110000110001010010001010101101111010111010000101001101010001101100010011001110101010010
 01111010011000111000111111010100101111110001011101101010011101111111010001100011001011001111111010000101001100011001010110111001001111110010110001000001010111
 011011101101010011101000111010100101101001000111100010111001110111111101000110100111101010110111111000100111111101010001101100011100000111101011010101110
+
+originalString
+Given there is usually an unequal distribution of character occurrences in text this can then be used to compress data by giving the most commonly occurring 
+characters the shortest prefix.
 ```
+
+#### TODO
+1. Make exception hierarchy
+2. Build UML diagrams
+3. Try looking into loading very large files - chunks wise possibility
+4. Working with characters larger than 1 byte
