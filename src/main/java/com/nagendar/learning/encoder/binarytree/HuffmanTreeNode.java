@@ -5,7 +5,12 @@
 
 package com.nagendar.learning.encoder.binarytree;
 
-public class HuffmanTreeNode implements Comparable<HuffmanTreeNode>{
+import java.io.Serial;
+import java.io.Serializable;
+
+public class HuffmanTreeNode implements Comparable<HuffmanTreeNode>, Serializable {
+	@Serial
+	private static final long serialVersionUID = 1718804620817441052L;
 	private final Character character;
 	private final Integer value;
 	private HuffmanTreeNode left, right;
