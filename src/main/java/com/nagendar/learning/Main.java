@@ -52,22 +52,25 @@ public class Main {
 
 		HuffmanEncoder encoder = new HuffmanEncoderImpl();
 		String encodedString = encoder.encode(characterCodeBase, input);
-		System.out.println("encoded string = " + encodedString);
+		if (encodedString.length() <= 1000) {
+			System.out.println("encoded string = " + encodedString);
+		}
 
 		ByteEncoder byteEncoder = new ByteEncoderImpl();
 		FileCompressor fileCompressor = new FileCompressorImpl(byteEncoder);
 		fileCompressor.compressAndWrite(root, encodedString);
 	}
 
-	private static void decode() {
+	private static void decode() throws IOException {
 		FileUncompressor uncompressor = new FileUncompressorImpl();
 		CompressedFileObject uncompressedObject = uncompressor.uncompress();
 		ByteDecoder byteDecoder = new ByteDecoderImpl();
 		String uncompressedString = byteDecoder.decode(uncompressedObject.encodedString());
-		System.out.println("uncompressedString = " + uncompressedString);
 
 		HuffmanDecoder decoder = new HuffmanDecoderImpl();
 		String originalString = decoder.decode(uncompressedString, uncompressedObject.root());
-		System.out.println("originalString = " + originalString);
+
+		Path original = Path.of(Paths.DECODED_UNCOMPRESSED_TEXT_FILE);
+		Files.writeString(original, originalString);
 	}
 }

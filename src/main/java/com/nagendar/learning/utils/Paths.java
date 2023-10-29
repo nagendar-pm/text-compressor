@@ -4,6 +4,8 @@ package com.nagendar.learning.utils;/*
  */
 
 public interface Paths {
-	String INPUT_FILE = "resources/firstInput.txt";
-	String OUTPUT_FILE = "resources/firstOutput.txt";
+	String INPUT_FILE = "resources/input.txt";
+	String OUTPUT_FILE = "resources/output.txt";
+
+	String DECODED_UNCOMPRESSED_TEXT_FILE = "resources/decodedUncompressedText.txt";
 }

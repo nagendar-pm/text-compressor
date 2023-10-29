@@ -16,9 +16,7 @@ public class HuffmanDecoderImpl implements HuffmanDecoder {
 		StringBuilder stringBuilder = new StringBuilder();
 		while (parser.hasCode()) {
 			Character code = parser.getNextCode();
-//			System.out.println("code = " + code);
 			stringBuilder.append(code);
-			// TODO: throw exception here
 		}
 		return stringBuilder.toString();
 	}
