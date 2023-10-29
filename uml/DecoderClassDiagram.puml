@@ -1,0 +1,45 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class HuffmanTreeParser {
+	- String encodedString
+	- int index
+	- HuffmanTreeNode root
+
+	+ boolean hasCode()
+	+ Character getNextCode()
+}
+
+class HuffmanTreeNode {
+	- Character character
+	- Integer value
+	- HuffmanTreeNode left
+	- HuffmanTreeNode right
+	- Boolean isLeaf
+}
+
+interface HuffmanDecoder {
+	String decode(String encodedString, HuffmanTreeNode root)
+}
+
+HuffmanDecoder -right- HuffmanTreeParser
+HuffmanTreeNode -down- HuffmanTreeParser
+
+interface ByteDecoder {
+	String decode(byte[] byteString)
+}
+
+class CompressedFileObject{
+    - HuffmanTreeNode root
+    - byte[] encodedString
+}
+
+interface FileUncompressor {
+	CompressedFileObject uncompress()
+}
+
+FileUncompressor -right- CompressedFileObject
+CompressedFileObject -down- ByteDecoder
+ByteDecoder -down- HuffmanDecoder
+
+@enduml

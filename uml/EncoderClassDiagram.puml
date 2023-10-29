@@ -1,0 +1,71 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class HuffmanTreeNode {
+	- Character character
+	- Integer value
+	- HuffmanTreeNode left
+	- HuffmanTreeNode right
+	- Boolean isLeaf
+}
+
+class CharacterFrequencyBase {
+	- Map<Character, Integer> frequencyData
+
+	+ void setFrequency(char c)
+	+ Integer getFrequency(char c)
+	+ Set<Character> keySet()
+}
+
+interface CharacterFrequencyBaseBuilder {
+	CharacterFrequencyBase buildCharacterBase(String input)
+}
+
+CharacterFrequencyBaseBuilder -- CharacterFrequencyBase
+
+interface HuffmanTreeBuilder {
+	HuffmanTreeNode buildTree(CharacterFrequencyBase characterBase)
+}
+
+HuffmanTreeBuilder -left- CharacterFrequencyBase
+HuffmanTreeBuilder -- HuffmanTreeNode
+
+class CharacterCodeBase {
+	- Map<Character, String> codes
+	- Map<String, Character> reverseCodes
+	
+	+ void setCode(char c, String code)
+	+ String getCode(char c)
+	+ Character getCharacter(String code)
+}
+
+interface CharacterCodeBaseBuilder {
+	CharacterCodeBase buildCharacterCodeBase(HuffmanTreeNode root)
+}
+
+HuffmanTreeNode -down- CharacterCodeBaseBuilder
+CharacterCodeBaseBuilder -- CharacterCodeBase
+
+interface HuffmanEncoder {
+	String encode(CharacterCodeBase characterCodeBase, String input)
+}
+
+CharacterCodeBase -down- HuffmanEncoder
+
+interface ByteEncoder {
+	byte[] encode(String asciiString)
+}
+
+class CompressedFileObject{
+    - HuffmanTreeNode root
+    - byte[] encodedString
+}
+
+interface FileCompressor {
+	void compressAndWrite(HuffmanTreeNode root, String encodedString)
+}
+
+HuffmanTreeNode -right- CompressedFileObject
+CompressedFileObject -right- FileCompressor
+FileCompressor -down- ByteEncoder
+@enduml
