@@ -62,5 +62,33 @@ The size difference of the files is shown:
 3.2M decodedUncompressedText.txt (Uncompressed and decoded file)
 ```
 
+## Benchmarks
+
+For a file of size 3.8MB the below are benchmark results when performed using JMH
+```commandline
+Result "com.nagendar.learning.Main.testParseAndFormat":
+  362.050 ±(99.9%) 12.464 ms/op [Average]
+  (min, avg, max) = (358.297, 362.050, 365.863), stdev = 3.237
+  CI (99.9%): [349.587, 374.514] (assumes normal distribution)
+
+# Run complete. Total time: 00:01:42
+
+Benchmark                Mode  Cnt    Score    Error  Units
+Main.testParseAndFormat  avgt    5  362.050 ± 12.464  ms/op
+```
+
+File size 112MB the results are as follows:
+```commandline
+Result "com.nagendar.learning.Main.testParseAndFormat":
+  17485.519 ±(99.9%) 4094.302 ms/op [Average]
+  (min, avg, max) = (16391.416, 17485.519, 19102.437), stdev = 1063.277
+  CI (99.9%): [13391.217, 21579.820] (assumes normal distribution)
+
+# Run complete. Total time: 00:02:55
+
+Benchmark                Mode  Cnt      Score      Error  Units
+Main.testParseAndFormat  avgt    5  17485.519 ± 4094.302  ms/op
+```
+
 #### TODO
 1. Try looking into loading very large files - chunks wise possibility
