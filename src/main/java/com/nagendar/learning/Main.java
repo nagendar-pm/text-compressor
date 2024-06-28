@@ -24,10 +24,31 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+import org.openjdk.jmh.annotations.*;
+import org.openjdk.jmh.runner.Runner;
+import org.openjdk.jmh.runner.RunnerException;
+import org.openjdk.jmh.runner.options.Options;
+import org.openjdk.jmh.runner.options.OptionsBuilder;
+
+import java.util.concurrent.TimeUnit;
+
+@BenchmarkMode(Mode.AverageTime)
+@OutputTimeUnit(TimeUnit.MILLISECONDS)
+@State(Scope.Thread)
 public class Main {
-	public static void main(String[] args) throws IOException {
+	@Benchmark
+	public void testParseAndFormat() throws IOException {
 		encode();
 		decode();
+	}
+
+	public static void main(String[] args) throws RunnerException {
+		Options opt = new OptionsBuilder()
+				.include(Main.class.getSimpleName())
+				.forks(1)
+				.build();
+
+		new Runner(opt).run();
 	}
 
 	private static void encode() {
